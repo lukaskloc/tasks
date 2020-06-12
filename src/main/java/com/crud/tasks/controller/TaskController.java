@@ -1,5 +1,6 @@
 package com.crud.tasks.controller;
 
+import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
@@ -24,8 +25,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public TaskDto getTask(Long taskId) {
-        return new TaskDto(1L, "test title", "test content");
+    public Task getTask(Long taskId) {
+        return service.getTaskById(taskId);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
